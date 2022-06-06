@@ -11,8 +11,9 @@ body {
 .board {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 45%;
 }
 
 .box {
@@ -71,4 +72,33 @@ body {
 
 .box:not(.disabled):hover {
   background: #eee;
+}
+
+.game-over {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  box-shadow: rgb(0 0 0 / 50%) 0 0 0 9999px;
+}
+
+.game-over-text {
+  position: absolute;
+  top: -150px;
+  left: 60px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  transform: translateX(-30%);
+}
+
+.visible {
+  display: block;
+}
+
+.restart {
+  position: absolute;
+  top: 60px;
+  left: 50px;
 }
