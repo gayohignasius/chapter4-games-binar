@@ -1,4 +1,4 @@
-const box = document.querySelectorAll('.box');
+const boxes = document.querySelectorAll('.box');
 const restart = document.querySelector('.restart');
 const cross = 'cross';
 const circle = 'circle';
@@ -23,9 +23,9 @@ restart.addEventListener('click', start);
 
 function start() {
   isCrossPlayerTurn = true;
-  box.forEach(box => {
-    const removeCrossPlayer = box.classList.remove(cross, disabled);
-    const removeCirclePlayer = box.classList.remove(circle, disabled);
+  boxes.forEach(box => {
+    box.classList.remove(cross, disabled);
+    box.classList.remove(circle, disabled);
     box.addEventListener('click', handleClick, { once: true });
     gameOverElement.classList.remove('visible');
   })
@@ -59,7 +59,7 @@ function swapTurn() {
 function checkWinning(currentClass) {
   return winningCombination.some(comb => {
     return comb.every(id => {
-      return box[id].classList.contains(currentClass);
+      return boxes[id].classList.contains(currentClass);
     })
   })
 }
@@ -72,14 +72,14 @@ function endGame(draw) {
   }
   gameOverElement.classList.add('visible');
   if (gameOverElement) {
-    box.forEach(box => {
+    boxes.forEach(box => {
       box.removeEventListener('click', handleClick);
     })
   }
 }
 
 function isDraw() {
-	return [...box].every(box => {
+	return [...boxes].every(box => {
     return box.classList.contains(cross) || box.classList.contains(circle);
 	})
 }
