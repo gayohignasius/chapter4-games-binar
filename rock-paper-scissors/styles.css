@@ -46,7 +46,7 @@ header {
 .game {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 80%;
 }
@@ -89,15 +89,28 @@ header {
   background-color: #C4C4C4;
   border-radius: 30px;
   width: 1.5em;
-  transform: rotate(-15deg);
 }
 
 .list-options > div.playerOption:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: red;
+  background-color: #C4C4C4;
   border-radius: 30px;
   width: 1.5em;
-  transform: rotate(-15deg);
+}
+
+.list-options > div.computerOption.selected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #C4C4C4;
+  border-radius: 30px;
+  width: 1.5em;
+}
+
+.restart-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
