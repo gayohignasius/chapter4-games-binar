@@ -1,5 +1,8 @@
 const playerOption = document.querySelectorAll('.playerOption');
 const computerOption = document.querySelectorAll('.computerOption');
+const middle = document.getElementById('middle');
+const resultCSS = middle.getElementsByClassName('versus');
+const restart = middle.getElementsByClassName('restart-button');
 const arrayListOption = ['✊', '🖐', '✌'];
 
 class Player {
@@ -94,6 +97,11 @@ class Computer extends Player {
 }
 
 function startGame() {
+  restart.item(0).style.opacity = '0';
+  computerOption.forEach(opt => {
+    opt.classList.remove('selected');
+  })
+
   playerOption.forEach(opt => {
     opt.addEventListener('click', handleClick);
   });
@@ -136,7 +144,8 @@ function handleClick(e) {
     }
 
     const result = await Player.getResult(player1.getOpt, computer.getOpt, player1.getName, computer.getName);
-    const resultCSS = document.getElementsByClassName('versus');
+    
+
     resultCSS.item(0).style.color = 'white';
     resultCSS.item(0).style.backgroundColor = '#4C9654';
     resultCSS.item(0).style.fontSize = '38px';
@@ -149,6 +158,9 @@ function handleClick(e) {
     resultCSS.item(0).style.textAlign = 'center';
     resultCSS.item(0).style.transform = 'rotate(-10deg)';
     resultCSS.item(0).innerHTML = result;
+
+    restart.item(0).style.opacity = '100';
+    restart.item(0).addEventListener('click', startGame);
   }, 1000);
   
 }

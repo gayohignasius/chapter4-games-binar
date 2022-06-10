@@ -59,10 +59,22 @@ header {
   width: 15%;
 }
 
+#middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15%;
+  margin-top: 20em;
+}
+
 .versus {
   font-size: 144px;
   color: red;
   font-weight: 700;
+}
+
+.restart-button {
+  opacity: 0;
 }
 
 .computer {
@@ -107,10 +119,4 @@ header {
   background-color: #C4C4C4;
   border-radius: 30px;
   width: 1.5em;
-}
-
-.restart-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
